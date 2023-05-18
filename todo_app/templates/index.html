@@ -7,11 +7,27 @@
     <p class="lead">Just another to-do app.</p>
   </div>
 
+
+  <form action="/todo" method="post">
+  <div>
+    <label for="name">To do </label>
+    <input type="text" name="todo-title" id="todo-title" required>
+  </div>
+ 
+  <div class="form-example">
+    <input type="submit" value="Save">
+  </div>
+  </form>
+
+
+
   <div class="row">
     <div class="col-md-12">
       <h2>Items</h2>
       <ul class="list-group mb-4">
-        <!-- List the todo items here -->
+        {% for item in items %}
+          <li>Id: {{ item.id }} - Title: {{ item.title }} - Status: {{ item.status }} </li>
+        {% endfor %}
       </ul>
     </div>
   </div>
